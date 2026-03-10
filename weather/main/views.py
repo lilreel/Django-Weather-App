@@ -1,8 +1,14 @@
+import os
 import requests
 from django.shortcuts import render
 from .models import SearchHistory
+from dotenv import load_dotenv
 
-API_KEY = 'bc13624bb0fbaca120d62ae981ddb19c'
+# Load file .env yang ada di folder root
+load_dotenv()
+
+# Ambil API Key dari file .env
+API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 def index(request):
     weather = None
